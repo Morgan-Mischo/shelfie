@@ -58,7 +58,7 @@ export default class Form extends Component {
 
         <input name="name" type="text" placeholder="product name"  onChange={this.handleChange}/>
 
-        <input name="price" type="number" placeholder="price"  onChange={this.handleChange}/>
+        <input name="price" type="text" placeholder="price"  onChange={this.handleChange}/>
 
         <button className='cancel' onClick={this.cancel}>Cancel</button>
         <button onClick={this.createProduct}>Add to Inventory</button>
