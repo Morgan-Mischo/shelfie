@@ -4,7 +4,6 @@ const massive = require('massive');
 
 let app = express(); 
 app.use(express.json()); 
-app.use(express.static(__dirname + '/../public/build')); 
 
 let ctrl = require('./controller'); 
 const { SERVER_PORT, CONNECTION_STRING } = process.env; 

@@ -12,8 +12,9 @@ class App extends React.Component {
     super(); 
     this.state = {
       list: []
-
     }
+    this.componentDidMount=this.componentDidMount.bind(this); 
+    this.createProduct=this.createProduct.bind(this); 
   }
 
   componentDidMount() {
@@ -26,14 +27,29 @@ class App extends React.Component {
       }); 
     }); 
   }; 
-  
+
+  createProduct = product => {
+    axios
+    .post('/api/product', product)
+    .then(res => {
+      console.log(res.data)
+      this.setState({
+        list: res.data
+      });
+    }); 
+    
+
+  }; 
+
   render () {
     let { list } = this.state;
   return (
     <div className="App">
       <Dashboard 
       list={this.state.list}/>
-      <Form />
+      <Form 
+      get={this.componentDidMount}
+      createProduct={this.createProduct}/>
       <Header/>
     </div>
   );
